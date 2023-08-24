@@ -1,3 +1,5 @@
+const capitalizeFirstString = (string) => string.charAt(0).toUpperCase() + string.slice(1)
+
 const showFormattedDate = (date) => {
   const options = {
     weekday: 'long',
@@ -8,4 +10,4 @@ const showFormattedDate = (date) => {
   return new Date(date).toLocaleDateString('id-ID', options);
 };
 
-export { showFormattedDate };
+export { showFormattedDate, capitalizeFirstString };
