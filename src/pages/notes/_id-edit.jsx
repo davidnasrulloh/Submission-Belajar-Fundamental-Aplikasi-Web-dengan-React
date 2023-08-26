@@ -1,8 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
+import EditNotesSection from './../../components/action/section/EditNotesSection';
 
 const EditNotes = () => {
+
+    // const {id} = useParams
+
+    const [formNote, setFormNote] = useState({
+        id: '',
+        archived : false,
+        title: '',
+        // body
+    })
+
+
     return (
-        <div>EditNotes</div>
+        <div>
+
+            <EditNotesSection onSaveNote={()=>{}}/>
+        </div>
     )
 }
 

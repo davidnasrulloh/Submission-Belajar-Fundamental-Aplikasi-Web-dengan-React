@@ -1,9 +1,21 @@
 import React from 'react'
+import PropTypes from 'prop-types';
+import NoteCard from './NoteCard';
 
-const NoteList = () => {
+const NoteList = ({notes}) => {
     return (
-        <div>NoteList</div>
+        <div className='notes-list'>
+            {
+                notes.map((note)=>(
+                    <NoteCard key={note.id} note={note}/>
+                ))
+            }
+        </div>
     )
+}
+
+NoteList.propTypes = {
+    notes: PropTypes.object.isRequired
 }
 
 export default NoteList
