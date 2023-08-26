@@ -8,7 +8,7 @@ const DetailNoteSection = ({archived, onEdit, onArchive, onDelete}) => {
     return (
         <CustomActionSection pagesection='detail-page'>
             <>
-                <EditButton onEdit={() => onEdit()}/>
+                <EditButton onEdit={onEdit}/>
                 <ArchieveButton archive={archived} onArchive={onArchive}/>
                 <DeleteButton onDelete={onDelete}/>
             </>
