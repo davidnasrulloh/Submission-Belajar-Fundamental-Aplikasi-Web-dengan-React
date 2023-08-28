@@ -18,7 +18,7 @@ const HomePage = () => {
         if(search !== ''){
             setNotes(
                 getActiveNotes()
-                    .filter((note)=> note.title.toLowerCase().includes(search.toUpperCase()))
+                    .filter((note)=> note.title.toLowerCase().includes(search.toLowerCase()))
             )
         } else {
             setNotes(
@@ -33,7 +33,7 @@ const HomePage = () => {
             <SearchComponent value={search} onChange={onSearchHandler}/>
             {notes.length > 0 && <NoteList notes={notes}/>}
             {notes.length === 0 && <EmptyNote/>}
-            <HomePageAction/>
+            <HomePageAction/> 
         </div>
     )
 }

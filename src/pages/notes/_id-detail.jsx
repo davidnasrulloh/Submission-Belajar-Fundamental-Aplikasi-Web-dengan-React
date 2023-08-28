@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { archiveNote, deleteNote, getNote, unarchiveNote } from '../../utils/local-data'
 import NotFoundMessage from './../../components/emptystate/NotFoundMessage';
@@ -18,37 +18,32 @@ const DetailNotes = () => {
 
     const onArchiveHandler = () => {
         if(note.archived){
-            unarchiveNote(Number(id))
+            unarchiveNote(id)
             navigate('/archives')
         } else {
-            archiveNote(Number(id))
+            archiveNote(id)
             navigate('/')
         }
     }
 
     const onDeleteHandler = () => {
-        deleteNote(Number(id))
+        deleteNote(id)
         navigate('/')
     }
 
     useEffect(()=>{
-        const note = getNote(Number(id))
+        const note = getNote(id)
         if(note){
             setNote(note)
         }
-    },[Number(id)])
+    },[id])
     
     return (
         <div className='detail-page'>
             {
                 'id' in note ? (
                     <>
-                        <Link
-                            to="/"
-                            title="Kembali">
-                                <HiArrowLeft /> Kembali
-                        </Link>
-                        <h4 className='detail-page__title'>{ note.title }</h4>
+                        <h4 className='detail-page__title'><Link to="/" title="Kembali"> <HiArrowLeft /> </Link> { note.title }</h4>
                         <p className='detail-page__createdAt'>{showFormattedDate(note.createdAt)}</p>
                         <div className='detail-page__body'>
                             {
@@ -58,7 +53,6 @@ const DetailNotes = () => {
                     </>
                 ) : <NotFoundMessage/>
             }
-            archived, onEdit, onArchive, onDelete
             <DetailNoteSection 
                 archived={note.archived ||false} 
                 onEdit={onEditHandler}

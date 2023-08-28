@@ -2,14 +2,14 @@ import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import ThemeToggle from './ThemeToggle'
 
-const NavMenu = () => {
+const Navbar = () => {
 
     const { pathname } = useLocation()
 
     return (
         <nav className='navigation'>
-            <ul>
-                <li>
+            <div style={{ display: 'flex', justifyContent: 'center', gap: '20px'}}>
+                <div>
                     <>
                         {
                             pathname !== '/archives' 
@@ -17,13 +17,13 @@ const NavMenu = () => {
                             : <Link to="/" title="Home" >Home</Link>
                         }
                     </>
-                </li>
-                <li>
+                </div>
+                <div>
                     <ThemeToggle/>
-                </li>
-            </ul>
+                </div>
+            </div>
         </nav>
     )
 }
 
-export default NavMenu
+export default Navbar

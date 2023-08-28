@@ -116,7 +116,7 @@ main {
 }
 
 .detail-page__title {
-  font-size: 48px;
+  font-size: 32px;
   margin-bottom: 8px;
   word-wrap: break-word;
 }
@@ -154,26 +154,26 @@ main {
   cursor: pointer;
 }
 
-.add-new-page__input {
+.add-new-page__input, .edit-note__input  {
   margin-top: 32px;
 }
 
-.add-new-page__input .add-new-page__input__title {
+.add-new-page__input .add-new-page__input__title, .edit-note__input, .edit-note__input__title {
   width: 100%;
   background-color: transparent;
   border: 0;
   color: var(--on-background);
   font-family: 'Inter', sans-serif;
-  font-size: 64px;
-  font-weight: bold;
+  font-size: 32px;
+  font-weight: medium;
   padding: 8px 0;
 }
 
-.add-new-page__input__title::placeholder {
+.add-new-page__input__title::placeholder, .edit-note__input__title::placeholder {
   color: var(--on-background-grey);
 }
 
-.add-new-page__input .add-new-page__input__body {
+.add-new-page__input .add-new-page__input__body, .edit-note__input, .edit-note__input__title {
   width: 100%;
   background-color: transparent;
   border: 0;
@@ -181,7 +181,7 @@ main {
   font-family: 'Inter', sans-serif;
   font-size: 24px;
   padding: 8px 0;
-  min-height: 500px;
+  min-height: 20px;
 }
 
 [data-placeholder]:empty::before {
@@ -275,7 +275,7 @@ main {
   }
 
   .detail-page__title { 
-    font-size: 64px;
+    font-size: 48px;
   }
 }
 

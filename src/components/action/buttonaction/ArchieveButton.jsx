@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { BiArchiveIn, BiArchiveOut } from 'react-icons/bi'
+import CustomButton from '../CustomButton'
 
 const ArchieveButton = ({archive, onArchive}) => {
     return (
