@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 
 const CustomInput = ({type, name, value, minLength, maxLenght, onChange, isRequired = false }) => {
     return (
@@ -14,6 +15,16 @@ const CustomInput = ({type, name, value, minLength, maxLenght, onChange, isRequi
             required={isRequired}
         />
     )
+}
+
+CustomInput.propTypes = {
+    type: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    value: PropTypes.string.isRequired,
+    minLength: PropTypes.string,
+    maxLenght: PropTypes.string,
+    onChange: PropTypes.func.isRequired,
+    isRequired: PropTypes.bool
 }
 
 export default CustomInput
