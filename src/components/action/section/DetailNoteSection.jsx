@@ -9,7 +9,6 @@ const DetailNoteSection = ({archived, onArchive, onDelete}) => {
     return (
         <CustomActionSection pagesection='detail-page'>
             <>
-                {/* <EditButton onEdit={onEdit}/> */}
                 <ArchieveButton archive={archived} onArchive={onArchive}/>
                 <DeleteButton onDelete={onDelete}/>
             </>
@@ -17,9 +16,8 @@ const DetailNoteSection = ({archived, onArchive, onDelete}) => {
     )
 }
 
-DetailNoteSection.PropTypes = {
+DetailNoteSection.propTypes = {
     archived: PropTypes.bool.isRequired,
-    // onEdit: PropTypes.func.isRequired,
     onArchive: PropTypes.func.isRequired,
     onDelete: PropTypes.func.isRequired,
 }
