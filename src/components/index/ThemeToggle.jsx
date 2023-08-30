@@ -1,31 +1,18 @@
-import React, { useEffect, useState } from 'react'
-import { capitalizeFirstString } from '../../utils'
+import React from 'react'
+import { GrSun } from 'react-icons/gr'
+import { IoMdMoon } from 'react-icons/io'
+import useTheme from './../../hooks/useTheme';
 
 const ThemeToggle = () => {
 
-    const [theme, setTheme] = useState('dark')
-
-    const changeThemeHandler = (val) => {
-        setTheme(val)
-        const root = window.document.documentElement
-        root.setAttribute('data-theme', val)
-        localStorage.setItem('theme', val)
-    }
-
-    useEffect(()=>{
-        if(localStorage.theme){
-            changeThemeHandler(localStorage.theme)
-        } else {
-            localStorage.setItem('theme', 'dark')
-            changeThemeHandler('dark')
-        }
-    })
-
+    const [theme, onThemeChangeHandler] = useTheme()
     return (
         <button
-            onClick={()=> changeThemeHandler(theme === 'dark' ? 'light' : 'dark')}
+            onClick={()=> onThemeChangeHandler(theme === 'dark' ? 'light' : 'dark')}
             type="button"> 
-            {capitalizeFirstString(theme)} Theme Now
+            {
+                theme === 'dark' ? <IoMdMoon /> : <GrSun />
+            }
         </button>
     )
 }

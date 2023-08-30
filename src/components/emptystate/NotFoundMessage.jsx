@@ -1,10 +1,14 @@
 import React from 'react'
+import useLanguage from './../../hooks/useLanguage';
 
 const NotFoundMessage = () => {
+
+    const textMainApp = useLanguage('mainApp')
+
     return (
         <>
             <h2>404</h2>
-            <p>Halaman Tidak Ditemukan</p>
+            <p>{textMainApp.notFoundPage }</p>
         </>
     )
 }

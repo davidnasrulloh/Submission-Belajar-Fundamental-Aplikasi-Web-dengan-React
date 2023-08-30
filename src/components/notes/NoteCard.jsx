@@ -5,11 +5,15 @@ import { showFormattedDate } from '../../utils';
 import parse from 'html-react-parser';
 
 const NoteCard = ({note}) => {
+
+    const { id } = note;
+    // const idNote = id.charAt(id.length - 1);
+    
     return (
         <div className='note-item'>
             <h2 className='note-item__title'>
                 <Link 
-                    to={`/notes/${note.id}`}
+                    to={`/notes/${id}`}
                     title={note.title}
                 >
                     {note.title}
@@ -20,11 +24,11 @@ const NoteCard = ({note}) => {
                     showFormattedDate(note.createdAt)
                 }
             </p>
-            <p className='note-item__body'>
+            <div className='note-item__body'>
                 {
                     parse(note.body)
                 }
-            </p>
+            </div>
         </div>
     )
 }
