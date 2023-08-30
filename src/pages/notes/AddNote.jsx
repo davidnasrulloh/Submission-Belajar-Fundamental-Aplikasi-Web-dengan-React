@@ -3,36 +3,43 @@ import draftToHtml from 'draftjs-to-html'
 import { Editor } from 'react-draft-wysiwyg'
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { addNote } from '../../utils/local-data'
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css'
 import AddNewNoteSection from './../../components/action/section/AddNewNoteSection';
+import useLanguage from '../../hooks/useLanguage'
+import useInput from './../../hooks/useInput';
+import { addNote } from '../../utils/network-data'
 
 const AddNote = () => {
-
     const navigate = useNavigate()
+    const textApp = useLanguage('mainApp');
+    const textLangAdd = useLanguage('addNotesNew')
 
-    const [formNote, setFormNote] = useState({
-        title: '',
-        body: EditorState.createWithContent(
+    const [title, onTitleChangeHandler] = useInput('')
+    const [bodyNote, setBodyNote] = useState(
+        EditorState.createWithContent(
             ContentState.createFromBlockArray(
-                convertFromHTML('<div>Isi Catatan</div>')
+                convertFromHTML(textLangAdd.bodyPlaceholder)
             )
         )
-    })
-
-    const onChangeTitleHandler = (ev) => {
-        setFormNote((data)=>({...data, title: ev.target.value }))
-    }
+    )
 
     const onChangeEditorHandler = (body) => {
-        setFormNote((data)=>({ ...data, body }))
+        setBodyNote(body)
     }
 
     const onSaveNewNote = () => {
-        const { title } = formNote
-        const body = draftToHtml(convertToRaw(formNote.body.getCurrentContent()))
-        addNote({title, body})
-        navigate('/')
+        const body = draftToHtml(convertToRaw(bodyNote.getCurrentContent()))
+        addNote({title, body: body })
+            .then((res)=>{
+                if(!res.error){
+                    console.log(title, body)
+                    alert(textLangAdd.message.success)
+                    navigate('/')
+                }
+            })
+            .catch(()=>{
+                alert(textApp.message.error)
+            })
     }
 
     return (
@@ -41,12 +48,12 @@ const AddNote = () => {
                 <input 
                     type="text"
                     className='add-new-page__input__title'
-                    placeholder='Masukkan title'
-                    value={formNote.title}
-                    onChange={onChangeTitleHandler}
+                    placeholder={textLangAdd.titlePlaceholder}
+                    value={title}
+                    onChange={onTitleChangeHandler}
                     style={{ marginBottom: '12px' }}/>
                 <Editor
-                    editorState={formNote.body}
+                    editorState={bodyNote}
                     toolbarClassName="toolbarClassName"
                     wrapperClassName="wrapperClassName"
                     editorClassName="editorClassName"

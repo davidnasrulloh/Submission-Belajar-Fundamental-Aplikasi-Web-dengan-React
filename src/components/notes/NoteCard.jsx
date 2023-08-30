@@ -24,11 +24,11 @@ const NoteCard = ({note}) => {
                     showFormattedDate(note.createdAt)
                 }
             </p>
-            <p className='note-item__body'>
+            <div className='note-item__body'>
                 {
                     parse(note.body)
                 }
-            </p>
+            </div>
         </div>
     )
 }

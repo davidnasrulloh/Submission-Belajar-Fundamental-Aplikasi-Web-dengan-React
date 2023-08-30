@@ -131,6 +131,10 @@ main {
   font-size: 18px;
 }
 
+.detail-page__body a, .login-page__footer a, .register-page__footer a {
+  text-decoration: underline;
+}
+
 .detail-page__action, .homepage__action, .add-new-page__action {
   position: fixed;
   display: flex;
@@ -232,6 +236,20 @@ main {
 }
 
 .input-login input, .input-register input {
+  font-size: 18px;
+  font-family: 'Inter', sans-serif;
+  margin-top: 8px;
+  margin-bottom: 16px;
+  display: block;
+  width: 100%;
+  padding: 8px;
+  background-color: transparent;
+  border-radius: 8px;
+  border: 3px solid var(--on-background);
+  color: var(--on-background)
+}
+
+.input-custom {
   font-size: 18px;
   font-family: 'Inter', sans-serif;
   margin-top: 8px;

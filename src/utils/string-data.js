@@ -1,28 +1,28 @@
 const loginPage = {
     id: {
-        header: 'Yuk, login untuk menggunakan aplikasi.',
-        linkFooter : 'Belum punya akun?',
+        title: 'Yuk, login untuk menggunakan aplikasi.',
+        textFooter : 'Belum punya akun?',
         linkRegister : 'Daftar disini'
     },
     en: {
-        header: 'Login to use app, please.',
-        linkFooter : 'Don\'t have an account?',
+        title: 'Login to use app, please.',
+        textFooter : 'Don\'t have an account?',
         linkRegister : 'Register here'
     }
 }
 
 const registerPage = {
     id: {
-        header: 'Isi form untuk mendaftar akun.',
-        linkFooter : 'Sudah punya akun?',
+        title: 'Isi form untuk mendaftar akun.',
+        textFooter : 'Sudah punya akun?',
         linkRegister : 'Login disini',
         message: {
             success: 'Akun berhasil dibuat. Silahkan login.'
         }
     },
     en: {
-        header: 'Fill the form to register account.',
-        linkFooter : 'Already have an account?',
+        title: 'Fill the form to register account.',
+        textFooter : 'Already have an account?',
         linkRegister : 'Login here',
         message: {
             success: 'User created successfully.'
@@ -69,7 +69,7 @@ const mainAppPage = {
     }
 }
 
-const notePage = {
+const activePage = {
     id: {
         title: 'Catatan Aktif',
         searchPlaceholder: 'Cari berdasarkan judul ...',
@@ -84,14 +84,14 @@ const notePage = {
 
 const addNotesNewPage = {
     id: {
-        title: 'Judul',
+        titlePlaceholder: 'Judul',
         bodyPlaceholder: '<p><i><u>Isi Catatan</u></i></p>',
         message: {
             success: 'Berhasil menambahkan catatan!'
         }
     },
     en: {
-        title: 'Title',
+        titlePlaceholder: 'Title',
         bodyPlaceholder: '<p><i><u>Notes Content</u></i></p>',
         message: {
             success: 'Successfully add notes!'
@@ -121,7 +121,7 @@ const stringData = {
     archivePage,
     detailNotePage,
     addNotesNewPage,
-    notePage,
+    activePage,
     mainAppPage,
     registerPage,
     loginPage
@@ -131,7 +131,7 @@ export {
     archivePage,
     detailNotePage,
     addNotesNewPage,
-    notePage,
+    activePage,
     mainAppPage,
     registerPage,
     loginPage
