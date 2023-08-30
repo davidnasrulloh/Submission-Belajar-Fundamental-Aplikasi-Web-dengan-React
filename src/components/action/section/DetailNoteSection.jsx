@@ -3,6 +3,7 @@ import CustomActionSection from '../CustomActionSection'
 import EditButton from './../buttonaction/EditButton';
 import ArchieveButton from './../buttonaction/ArchieveButton';
 import DeleteButton from './../buttonaction/DeleteAction';
+import PropTypes from 'prop-types';
 
 const DetailNoteSection = ({archived, onEdit, onArchive, onDelete}) => {
     return (
@@ -15,5 +16,13 @@ const DetailNoteSection = ({archived, onEdit, onArchive, onDelete}) => {
         </CustomActionSection>
     )
 }
+
+DetailNoteSection.PropTypes = {
+    archived: PropTypes.bool.isRequired,
+    onEdit: PropTypes.func.isRequired,
+    onArchive: PropTypes.func.isRequired,
+    onDelete: PropTypes.func.isRequired,
+}
+
 
 export default DetailNoteSection
