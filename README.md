@@ -8,7 +8,7 @@ Project ini adalah catatan personal yang dibuat untuk submission dicoding pada k
 
 ### Deployment Result
 ---
-#### <a href="https://personal-notes-dave.netlify.app/login" target="_blank">https://personal-notes-dave.netlify.app/login</a>
+#### <a href="https://personal-notes-dave.netlify.app/" target="_blank">https://personal-notes-dave.netlify.app/</a>
 
 ### How to Run?
 
